@@ -1,4 +1,4 @@
-# The Wilds – Community License (Based on CC BY-NC 4.0)
+# MemoryFlow – Community License (Based on CC BY-NC 4.0)
 
 This mod is licensed under the **Creative Commons Attribution-NonCommercial 4.0 International Public License**, with the following clarification:
 
@@ -23,7 +23,7 @@ You **may use this mod in monetized content** such as:
 - Monetized YouTube or social content
 
 **As long as:**
-- You give visible credit to "The Wilds" mod and the author  
+- You give visible credit to "EvilGeniusGames" and the author  
 - You link back to the mod page or GitHub repository  
 - You do **not** repackage or sell the mod itself
 
