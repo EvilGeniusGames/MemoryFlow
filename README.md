@@ -23,8 +23,9 @@ This app introduces a persistent memory buffer and a lightweight, cross-platform
 - .NET 8 / C#
 - CommunityToolkit.MVVM — Clean MVVM pattern with source generators
 - OpenAI API — Uses the Chat Completions API (e.g., GPT-4o)
+- Entity Framework Core — ORM for managing structured memory
+- SQLite — Lightweight, file-based database used as the persistent backend
 - Markdown Rendering — Responses are rendered in styled, readable Markdown
-- Memory Buffer — Stored locally in `memory.md` or equivalent and injected per session
 
 ---
 
@@ -33,7 +34,7 @@ This app introduces a persistent memory buffer and a lightweight, cross-platform
 1. User provides input (code, writing, questions, etc.)
 2. MemoryFlow injects the latest memory into the prompt automatically
 3. The assistant replies in Markdown with the relevant output
-4. The memory file is updated with the new context or edited content
+4. The memory file and database are updated with new context
 5. The session can continue iteratively with memory-aware responses
 
 ---
@@ -44,16 +45,18 @@ MemoryFlow follows the MVVM pattern using CommunityToolkit.MVVM:
 
 - `MainViewModel` handles prompt state, memory injection, and OpenAI interaction
 - `MainView.axaml` binds directly to observable properties and commands
-- Services handle memory loading/saving and HTTP calls to OpenAI
+- Services manage memory loading/saving, SQLite storage, and HTTP calls to OpenAI
+- Entity Framework provides a structured persistence layer for memory and configuration
 
 ---
 
 ## Key Features
 
-- Simulated persistent memory via local files
+- Simulated persistent memory via local Markdown and database storage
 - Natural back-and-forth chat with context
 - Markdown and code rendering
 - Iterative content refinement
+- SQLite-backed memory management
 - Cross-platform desktop experience
 - Completely free and local — you own your data
 
