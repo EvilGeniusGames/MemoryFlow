@@ -1,0 +1,45 @@
+# The Wilds – Community License (Based on CC BY-NC 4.0)
+
+This mod is licensed under the **Creative Commons Attribution-NonCommercial 4.0 International Public License**, with the following clarification:
+
+---
+
+## ✅ You are free to:
+- **Share** — Copy and redistribute the material in any medium or format  
+- **Adapt** — Remix, transform, and build upon the material
+
+---
+
+## Under the following terms:
+- **Attribution** — You must give appropriate credit, link to this license, and indicate if changes were made. You may do so in any reasonable manner but not in a way that suggests endorsement.
+- **NonCommercial** — You may **not** use the material for **commercial purposes**.
+
+---
+
+## ✅ Streaming & Content Creation Exception:
+You **may use this mod in monetized content** such as:
+- Livestreams (e.g., Twitch, YouTube Live)
+- Let's Plays and gameplay videos
+- Monetized YouTube or social content
+
+**As long as:**
+- You give visible credit to "The Wilds" mod and the author  
+- You link back to the mod page or GitHub repository  
+- You do **not** repackage or sell the mod itself
+
+---
+
+## ❌ Not Allowed:
+- Selling, sublicensing, or redistributing the mod or its code for commercial use
+- Incorporating the code into paid mods or commercial game projects
+- Hosting the mod behind a paywall
+
+---
+
+## Notices:
+- This license does not override applicable exceptions (e.g., fair use or public domain).
+- No warranties are provided.
+- For commercial licensing or partnership inquiries, contact the author directly.
+
+**Full License Text:**  
+[https://creativecommons.org/licenses/by-nc/4.0/legalcode](https://creativecommons.org/licenses/by-nc/4.0/legalcode)
