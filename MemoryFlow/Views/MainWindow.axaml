@@ -7,14 +7,67 @@
         x:Class="MemoryFlow.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/avalonia-logo.ico"
-        Title="MemoryFlow">
+        Width="1200" Height="800"
+        WindowStartupLocation="CenterScreen"
+        Title="MemoryFlow: Version 0.0.0 Release: 0.1 Alpha">
 
-    <Design.DataContext>
-        <!-- This only sets the DataContext for the previewer in an IDE,
-             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
-        <vm:MainWindowViewModel/>
-    </Design.DataContext>
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" />
+			<!-- Menu -->
+			<RowDefinition Height="*" />
+			<!-- Content -->
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="*" />
+		</Grid.ColumnDefinitions>
 
-    <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		<!-- Design-time ViewModel -->
+		<Design.DataContext>
+			<vm:MainWindowViewModel />
+		</Design.DataContext>
 
+		<!-- Menu -->
+		<Menu Grid.Row="0">
+			<MenuItem Header="File" />
+			<MenuItem Header="Edit" />
+			<MenuItem Header="View" />
+			<MenuItem Header="Help" />
+		</Menu>
+
+		<!-- Content Grid with 3 columns -->
+		<Grid Grid.Row="1">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="250" />
+				<!-- Left: TreeView -->
+				<ColumnDefinition Width="*" />
+				<!-- Center: TabControl -->
+				<ColumnDefinition Width="250" />
+				<!-- Right: File Manager -->
+			</Grid.ColumnDefinitions>
+
+			<!-- Conversations Tree -->
+			<StackPanel Grid.Column="0" Margin="5">
+				<TextBlock Text="Conversations" FontWeight="Bold" Margin="0,0,0,5" />
+				<StackPanel Orientation="Horizontal" Margin="0,0,0,5" Spacing="5">
+					<Button Content="Add" />
+					<Button Content="Edit" />
+					<Button Content="Delete" />
+				</StackPanel>
+				<TreeView />
+			</StackPanel>
+
+			<!-- Conversation Tabs -->
+			<TabControl Grid.Column="1" Margin="5">
+				<TabItem Header="Topic 1" />
+				<TabItem Header="Topic 2" />
+			</TabControl>
+
+			<!-- File Manager -->
+			<StackPanel Grid.Column="2" Margin="5">
+				<TextBlock Text="Files and folders" FontWeight="Bold" Margin="0,0,0,5" />
+				<TreeView />
+			</StackPanel>
+		</Grid>
+	</Grid>
 </Window>
