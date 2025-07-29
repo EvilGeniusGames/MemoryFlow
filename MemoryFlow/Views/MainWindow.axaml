@@ -3,6 +3,7 @@
         xmlns:vm="using:MemoryFlow.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:md="clr-namespace:Markdown.Avalonia;assembly=Markdown.Avalonia"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="MemoryFlow.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
@@ -35,18 +36,23 @@
 			<MenuItem Header="Help" />
 		</Menu>
 
-		<!-- Content Grid with 3 columns -->
+		<!-- Content Grid with 3 named columns -->
 		<Grid Grid.Row="1">
 			<Grid.ColumnDefinitions>
-				<ColumnDefinition Width="250" />
-				<!-- Left: TreeView -->
+				<!-- Left Column -->
+				<ColumnDefinition Width="250" MinWidth="150" />
+				<!-- Splitter -->
+				<ColumnDefinition Width="Auto" />
+				<!-- Center Column -->
 				<ColumnDefinition Width="*" />
-				<!-- Center: TabControl -->
-				<ColumnDefinition Width="250" />
-				<!-- Right: File Manager -->
+				<!-- Splitter -->
+				<ColumnDefinition Width="Auto" />
+				<!-- Right Column -->
+				<ColumnDefinition Width="250" MinWidth="150" />
 			</Grid.ColumnDefinitions>
 
-			<!-- Conversations Tree -->
+
+			<!-- Left Column -->
 			<StackPanel Grid.Column="0" Margin="5">
 				<TextBlock Text="Conversations" FontWeight="Bold" Margin="0,0,0,5" />
 				<StackPanel Orientation="Horizontal" Margin="0,0,0,5" Spacing="5">
@@ -57,14 +63,55 @@
 				<TreeView />
 			</StackPanel>
 
-			<!-- Conversation Tabs -->
-			<TabControl Grid.Column="1" Margin="5">
-				<TabItem Header="Topic 1" />
-				<TabItem Header="Topic 2" />
-			</TabControl>
+			<!-- Splitter between left and center -->
+			<GridSplitter Grid.Column="1"
+						  Width="2"
+						  ResizeDirection="Columns"
+						  ShowsPreview="True"
+						  Background="Transparent"/>
 
-			<!-- File Manager -->
-			<StackPanel Grid.Column="2" Margin="5">
+			<!-- Center Column -->
+			<Grid Grid.Column="2" Margin="5">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="*" />
+					<!-- Chat Tabs -->
+					<RowDefinition Height="Auto" />
+					<!-- Chat Entry -->
+				</Grid.RowDefinitions>
+
+				<!-- Conversation Tabs -->
+				<TabControl Grid.Row="0">
+					<TabItem Header="Topic 1">
+						<md:MarkdownScrollViewer Markdown="{Binding ActiveMarkdown}" />
+					</TabItem>
+					<TabItem Header="Topic 2" />
+				</TabControl>
+
+				<!-- Chat Entry Panel -->
+				<StackPanel Grid.Row="1" Margin="0,10,0,0">
+					<TextBlock Text="Enter your message:" Margin="0,0,0,5" />
+					<TextBox AcceptsReturn="True"
+							 Height="100"
+							 Watermark="Type your message here..."
+							 TextWrapping="Wrap"
+							 HorizontalAlignment="Stretch" />
+
+					<!-- Future: attachments area -->
+					<StackPanel Orientation="Horizontal" Margin="0,5,0,0" Spacing="10">
+						<Button Content="+" IsEnabled="False" FontSize="10" FontWeight="Bold" />
+					</StackPanel>
+				</StackPanel>
+			</Grid>
+
+			<!-- Splitter between center and right -->
+			<GridSplitter Grid.Column="3"
+						  Width="2"
+						  ResizeDirection="Columns"
+						  ShowsPreview="True"
+						  Background="Transparent"/>
+
+			<!-- Right Column -->
+			<StackPanel Grid.Column="4" Margin="5">
 				<TextBlock Text="Files and folders" FontWeight="Bold" Margin="0,0,0,5" />
 				<TreeView />
 			</StackPanel>
